@@ -20,7 +20,7 @@ function Marketpage() {
   // once when the component is mounted
   useEffect(() => {
     Axios.get(
-      'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=25&page=2&sparkline=false',
+      'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=25&page=1&sparkline=false',
     )
       .then((res) => {
         setCrypto(res.data)
