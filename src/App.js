@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+// importing components from react-router-dom package
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  // Redirect,
+} from 'react-router-dom'
+
+// import Home component
+import home from './Pages/Home'
+import Marketpage from './Pages/marketpage'
+// import About component
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      {/* This is the alias of BrowserRouter i.e. Router */}
+      <Router>
+        <Switch>
+          <Route exact path="/" component={home} />
+          {/* <Redirect to="/" /> */}
+          <Route path="/marketpage" component={Marketpage} />
+        </Switch>
+      </Router>
+    </>
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,162 @@
+.market {
+min-height: 100vh;
+height: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+padding: 40px;
+font-size: 16px;
+background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+h1{
+color: #3ecea2;
+}
+
+input{
+padding-left: 5px;
+font-size: 20px;
+width: 250px;
+height: 30px;
+}
+
+table{
+width: 1100px;
+border-collapse: separate;
+border-spacing: 0 1em;
+}
+
+thead{
+background-color: rgb(44, 44, 44);
+color: white;
+text-align: center;
+}
+
+tbody > tr{
+text-align: right;
+}
+
+td{
+  text-align: center;
+}
+
+.rank{
+text-align: center;
+font-weight: bold;
+}
+
+.logo{
+display: flex;
+justify-content: flex-start;
+padding-left: 10%;
+gap: 10px;
+}
+.symbol{
+text-align: center;
+}
+
+.image{
+  position: relative;
+  height:40px;
+  padding-top:0.5rem;
+  top: -0.5rem;
+}
+
+.search{
+  border-color: #3ecea2;
+  height:20px;
+  width:300px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-radius:20px;
+  margin-bottom:20px;
+  display: inline-block;
+}
+
+::placeholder{
+  color:#3ecea2;
+  font-size:20px;
+  text-align: center;
+  justify-content: center
+}
+
+.table-header{
+    background-color: #3ecea2;
+    color: hsl(0, 85%, 3%);
+    text-align: left;
+    box-shadow: 0 2px 15px rgba(64,64,64,.7);
+    border-radius: 12px 12px 0 0;
+    width: 60%; 
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    height:50px;
+    padding:110px;
+}
+
+.table-header td {
+  padding-left: 70px;
+  padding-right: 70px;  
+  font-size: 1.3rem;
+}
+
+.t-body td{
+  padding-top:10px;
+  font-size:1.2rem;
+}
+
+.t-body tr:hover{background-color:rgb(236, 233, 233)}
+
+td + td,
+th + th { border-left: 1px solid chartreuse; }
+tr + tr { border-top: 1px solid indigo; }
+
+tr + tr > td,
+tr + tr > th { border-top: 1px solid indigo; }
+
+.suggestion{
+    cursor: pointer;
+    border-bottom: 1px solid #3ecea2;
+    padding:20px;
+    border-radius: 10px;
+    margin-bottom:20px;
+    width:20rem;
+    box-shadow: 3px 4px #888888;
+}
+
+.suggestion:hover{
+    background-color: rgb(212, 209, 209);
+}
+
+.markets-header{
+  position: relative;
+  right:700px;
+  top: 30px;
+}
+
+.table-header1{
+      background-color: #3ecea2;
+    color: hsl(0, 85%, 3%);
+    text-align: left;
+    box-shadow: 0 2px 15px rgba(64,64,64,.7);
+    border-radius: 12px 12px 0 0;
+    width: 60%; 
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    height:50px;
+    padding:110px;
+}
+
+.market-table{
+width: 1650px;
+border-collapse: separate;
+border-spacing: 0 1em;
+margin-top:30px
+}
+
+.t-body1 td {
+    padding-top:10px;
+  font-size:1.2rem;
+}
