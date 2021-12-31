@@ -1,5 +1,5 @@
 .market {
-min-height: 100vh;
+min-height: 100%;
 height: auto;
 display: flex;
 flex-direction: column;
@@ -82,7 +82,7 @@ text-align: center;
 }
 
 .table-header{
-    background-color: #3ecea2;
+    background-color: #9969C7;
     color: hsl(0, 85%, 3%);
     text-align: left;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
@@ -109,11 +109,11 @@ text-align: center;
 .t-body tr:hover{background-color:rgb(236, 233, 233)}
 
 td + td,
-th + th { border-left: 1px solid chartreuse; }
-tr + tr { border-top: 1px solid indigo; }
+th + th { border-left: 1px solid #FCBCD7; }
+tr + tr { border-top: 1px solid #FCBCD7; }
 
 tr + tr > td,
-tr + tr > th { border-top: 1px solid indigo; }
+tr + tr > th { border-top: 1px solid #FCBCD7; }
 
 .suggestion{
     cursor: pointer;
@@ -133,10 +133,11 @@ tr + tr > th { border-top: 1px solid indigo; }
   position: relative;
   right:700px;
   top: 30px;
+  color:#9969C7
 }
 
 .table-header1{
-      background-color: #3ecea2;
+    background-color: #9969C7;
     color: hsl(0, 85%, 3%);
     text-align: left;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
@@ -160,3 +161,34 @@ margin-top:30px
     padding-top:10px;
   font-size:1.2rem;
 }
+
+.allcrypto{
+  margin-right:80rem;
+  color:#9969C7
+}
+
+/* @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+.table-header td{
+    padding-left: 20px;
+  padding-right: 20px;  
+  font-size: 1.1rem;
+}
+}
+
+@media only screen and (min-width: 1201px) {
+  .table-header td{
+  padding-left: 70px;
+  padding-right: 70px;  
+  font-size: 1.3rem;
+}
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+  .table-header td{
+    padding-left: 5px;
+  padding-right: 5px;  
+  font-size: 1.1rem;
+}
+} */

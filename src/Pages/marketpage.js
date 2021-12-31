@@ -75,8 +75,8 @@ function Marketpage() {
 
   return (
     <div className="market">
-      <h1>All Cryptocurrencies</h1>
-      <input
+      <h1 className="allcrypto">All Cryptocurrencies</h1>
+      {/* <input
         type="text"
         className="search"
         placeholder="Search By Name"
@@ -87,7 +87,7 @@ function Marketpage() {
         //     setSuggestion([])
         //   }, 100)
         // }}
-      />
+      /> */}
       {suggestion &&
         suggestion.map((suggestion, i) => (
           <div
@@ -145,7 +145,7 @@ function Marketpage() {
                   <td>${val.current_price}</td>
                   <td>{circulating_supply}</td>
                   <td>{total_volume}</td>
-                  <td style={{ color: color }}>
+                  <td className="percentage" style={{ color: color }}>
                     {val.market_cap_change_percentage_24h.toFixed(2)}%
                   </td>
                 </tr>
