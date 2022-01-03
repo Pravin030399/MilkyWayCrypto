@@ -88,16 +88,6 @@ function Marketpage() {
         //   }, 100)
         // }}
       /> */}
-      {suggestion &&
-        suggestion.map((suggestion, i) => (
-          <div
-            key={i}
-            className="suggestion"
-            onClick={() => onSuggestHandler(suggestion.name)}
-          >
-            {suggestion.name}
-          </div>
-        ))}
       <table>
         <thead className="table-header">
           <tr>
@@ -145,7 +135,7 @@ function Marketpage() {
                   <td>${val.current_price}</td>
                   <td>{circulating_supply}</td>
                   <td>{total_volume}</td>
-                  <td className="percentage" style={{ color: color }}>
+                  <td style={{ color: color }}>
                     {val.market_cap_change_percentage_24h.toFixed(2)}%
                   </td>
                 </tr>

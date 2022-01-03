@@ -7,7 +7,7 @@ align-items: center;
 gap: 15px;
 padding: 40px;
 font-size: 16px;
-background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+background-image: linear-gradient(to top, #ddd8d8 0%, #ddd8d8 100%);
 }
 
 h1{
@@ -99,11 +99,12 @@ text-align: center;
   padding-left: 70px;
   padding-right: 70px;  
   font-size: 1.3rem;
-}
+} 
 
 .t-body td{
   padding-top:10px;
   font-size:1.2rem;
+  color:black;
 }
 
 .t-body tr:hover{background-color:rgb(236, 233, 233)}
@@ -160,6 +161,8 @@ margin-top:30px
 .t-body1 td {
     padding-top:10px;
   font-size:1.2rem;
+     color:black;
+
 }
 
 .allcrypto{
