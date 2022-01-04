@@ -1,15 +1,16 @@
-import './App.css'
+import "./App.css";
 // importing components from react-router-dom package
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   // Redirect,
-} from 'react-router-dom'
+} from "react-router-dom";
 
 // import Home component
-import home from './Pages/Home'
-import Marketpage from './Pages/marketpage'
+import home from "./Pages/Home";
+import Marketpage from "./Pages/marketpage";
+import Gainloss from "./Pages/gainloss";
 // import About component
 
 function App() {
@@ -21,10 +22,12 @@ function App() {
           <Route exact path="/" component={home} />
           {/* <Redirect to="/" /> */}
           <Route path="/marketpage" component={Marketpage} />
+          {/* <Redirect to="/" /> */}
+          <Route path="/gainloss" component={Gainloss} />
         </Switch>
       </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
