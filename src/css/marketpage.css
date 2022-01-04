@@ -1,5 +1,5 @@
 .market {
-min-height: 100vh;
+min-height: 100%;
 height: auto;
 display: flex;
 flex-direction: column;
@@ -7,7 +7,7 @@ align-items: center;
 gap: 15px;
 padding: 40px;
 font-size: 16px;
-background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+background-image: linear-gradient(to top, #ddd8d8 0%, #ddd8d8 100%);
 }
 
 h1{
@@ -82,7 +82,7 @@ text-align: center;
 }
 
 .table-header{
-    background-color: #3ecea2;
+    background-color: #9969C7;
     color: hsl(0, 85%, 3%);
     text-align: left;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
@@ -99,21 +99,22 @@ text-align: center;
   padding-left: 70px;
   padding-right: 70px;  
   font-size: 1.3rem;
-}
+} 
 
 .t-body td{
   padding-top:10px;
   font-size:1.2rem;
+  color:black;
 }
 
 .t-body tr:hover{background-color:rgb(236, 233, 233)}
 
 td + td,
-th + th { border-left: 1px solid chartreuse; }
-tr + tr { border-top: 1px solid indigo; }
+th + th { border-left: 1px solid #FCBCD7; }
+tr + tr { border-top: 1px solid #FCBCD7; }
 
 tr + tr > td,
-tr + tr > th { border-top: 1px solid indigo; }
+tr + tr > th { border-top: 1px solid #FCBCD7; }
 
 .suggestion{
     cursor: pointer;
@@ -133,10 +134,11 @@ tr + tr > th { border-top: 1px solid indigo; }
   position: relative;
   right:700px;
   top: 30px;
+  color:#9969C7
 }
 
 .table-header1{
-      background-color: #3ecea2;
+    background-color: #9969C7;
     color: hsl(0, 85%, 3%);
     text-align: left;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
@@ -159,4 +161,77 @@ margin-top:30px
 .t-body1 td {
     padding-top:10px;
   font-size:1.2rem;
+     color:black;
+
 }
+
+.allcrypto{
+  margin-right:80rem;
+  color:#9969C7;
+  margin-top: 70px;
+}
+
+.latest-milkyway{
+  margin-right:50rem;
+  color:#9969C7
+}
+
+.table-trending{
+  width: 35%;
+  background: #cfd0d1;
+  color: #fff;
+  border-radius: .4em;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0px 4px 20px rgba(5,57,94,.5);
+  color:black;
+  height:1rem;
+  margin-right: 60rem;
+}
+.trending-table-header{
+  width:50%;
+  background-color: #9969C7;
+  border-radius: 12px 12px 0 0;
+  height:35px;
+} 
+
+.trending-table-header tr{
+    border-color: lighten(#34495E, 10%);
+}
+
+.trending-coins{
+  font-size:1rem;
+}
+
+.fire-trending{
+  color:black;
+  margin-right: 80rem;
+  margin-top: 2rem;
+}
+
+
+/* @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+.table-header td{
+    padding-left: 20px;
+  padding-right: 20px;  
+  font-size: 1.1rem;
+}
+}
+
+@media only screen and (min-width: 1201px) {
+  .table-header td{
+  padding-left: 70px;
+  padding-right: 70px;  
+  font-size: 1.3rem;
+}
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px)
+{
+  .table-header td{
+    padding-left: 5px;
+  padding-right: 5px;  
+  font-size: 1.1rem;
+}
+} */

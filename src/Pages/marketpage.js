@@ -7,6 +7,7 @@ import "../css/marketpage.css";
 function Marketpage() {
   // Setting up the initial states using
   // react hook 'useState'
+<<<<<<< HEAD
   const [text, setText] = useState("");
   const [crypto, setCrypto] = useState([]);
   const [suggestion, setSuggestion] = useState([]);
@@ -16,11 +17,27 @@ function Marketpage() {
   var specifiedArr = [];
   var top3 = [];
   var low3 = [];
+=======
+  const [text, setText] = useState('')
+  const [crypto, setCrypto] = useState([])
+  const [suggestion, setSuggestion] = useState([])
+  const [markets, setMarkets] = useState([])
+  const [top, setTop] = useState([])
+
+  var list = {}
+  var specifiedArr = []
+  var top3 = []
+  var low3 = []
+>>>>>>> 203999cc81f5df53ad79d8e67a1e8ce077440a9a
   // Fetching crypto data from the API only
   // once when the component is mounted
   useEffect(() => {
     Axios.get(
+<<<<<<< HEAD
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=25&page=1&sparkline=false"
+=======
+      'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=20&page=1&sparkline=false',
+>>>>>>> 203999cc81f5df53ad79d8e67a1e8ce077440a9a
     )
       .then((res) => {
         setCrypto(res.data);
@@ -55,6 +72,17 @@ function Marketpage() {
       });
   }, []);
 
+  useEffect(() => {
+    Axios.get(`https://api.coingecko.com/api/v3/search/trending`)
+      .then((res) => {
+        setTop(res.data.coins)
+        console.log(res.data.coins)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [])
+
   const onSuggestHandler = (text) => {
     setText(text);
     setSuggestion([]);
@@ -75,8 +103,43 @@ function Marketpage() {
 
   return (
     <div className="market">
-      <h1>All Cryptocurrencies</h1>
-      <input
+      <h1 className="latest-milkyway">
+        Latest Cryptocurrencies Prices by MilkyWay
+      </h1>
+
+      <h2 className="fire-trending">🔥 Trending Coins</h2>
+      <table className="table-trending">
+        <thead className="trending-table-header">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Rank</th>
+          </tr>
+        </thead>
+
+        <tbody className="trending-table">
+          {/* Filtering to check for the searched crypto */}
+          {top.map((lol, id) => {
+            console.log(lol.item.name)
+            // console.log(item.score)
+            return (
+              <>
+                <tr id={id}>
+                  <td className="rank">{lol.item.score + 1}</td>
+                  <td className="logo">
+                    <img className="image" src={lol.item.small}></img>
+                    <p>{lol.item.name}</p>
+                  </td>
+                  <td className="rank">{lol.item.market_cap_rank}</td>
+                </tr>
+              </>
+            )
+          })}
+        </tbody>
+      </table>
+
+      <h1 className="allcrypto">All Cryptocurrencies</h1>
+      {/* <input
         type="text"
         className="search"
         placeholder="Search By Name"
@@ -87,17 +150,7 @@ function Marketpage() {
         //     setSuggestion([])
         //   }, 100)
         // }}
-      />
-      {suggestion &&
-        suggestion.map((suggestion, i) => (
-          <div
-            key={i}
-            className="suggestion"
-            onClick={() => onSuggestHandler(suggestion.name)}
-          >
-            {suggestion.name}
-          </div>
-        ))}
+      /> */}
       <table>
         <thead className="table-header">
           <tr>
