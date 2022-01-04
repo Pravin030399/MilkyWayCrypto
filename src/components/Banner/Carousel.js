@@ -1,65 +1,65 @@
-import { makeStyles } from "@material-ui/core";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import AliceCarousel from "react-alice-carousel";
-import { Link } from "react-router-dom";
-import { TrendingCoins, RetreivePrice } from "../../config/api";
-import { CryptoState } from "../../CryptoContext";
+import { makeStyles } from '@material-ui/core'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+import AliceCarousel from 'react-alice-carousel'
+import { Link } from 'react-router-dom'
+import { TrendingCoins, RetreivePrice } from '../../config/api'
+import { CryptoState } from '../../CryptoContext'
 
 const Carousel = () => {
-  const [trending, setTrending] = useState([]);
-  const { currency, symbol } = CryptoState();
+  const [trending, setTrending] = useState([])
+  const { currency, symbol } = CryptoState()
 
   const fetchTrendingCoins = async () => {
     const {
       data: { coins },
-    } = await axios.get(TrendingCoins());
-    console.log(currency);
+    } = await axios.get(TrendingCoins())
+    console.log(currency)
     const price_data = await Promise.all(
       coins.map(async (coin) => {
-        let name = coin["item"]["id"];
-        let { data } = await axios.get(RetreivePrice(name, currency));
-        return { ...coin["item"], ...data[name] };
-      })
-    );
+        let name = coin['item']['id']
+        let { data } = await axios.get(RetreivePrice(name, currency))
+        return { ...coin['item'], ...data[name] }
+      }),
+    )
 
-    setTrending(price_data);
-    console.log(items);
-  };
+    setTrending(price_data)
+    console.log(items)
+  }
 
   useEffect(() => {
-    fetchTrendingCoins();
-  }, [currency]);
+    fetchTrendingCoins()
+  }, [currency])
 
   const useStyles = makeStyles((theme) => ({
     carousel: {
-      height: "50%",
-      display: "flex",
-      alignItems: "center",
+      height: '50%',
+      display: 'flex',
+      alignItems: 'center',
     },
     carouselItem: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      cursor: "pointer",
-      textDecoration: "none",
-      textTransform: "uppercase",
-      color: "white",
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      cursor: 'pointer',
+      textDecoration: 'none',
+      textTransform: 'uppercase',
+      color: 'white',
     },
-  }));
+  }))
 
-  const classes = useStyles();
+  const classes = useStyles()
 
   let items = trending.map((coin) => {
-    let profit = coin[`${currency.toLowerCase()}_24h_change`];
-    console.log(coin);
-    console.log(profit);
+    let profit = coin[`${currency.toLowerCase()}_24h_change`]
+    console.log(coin)
+    console.log(profit)
 
     return (
-      <Link className={classes.carouselItem} to={`/coins/${coin["id"]}`}>
+      <Link className={classes.carouselItem} to={`/coins/${coin['id']}`}>
         <img
           src={coin?.large}
-          alt={coin["id"]}
+          alt={coin['id']}
           height="80"
           style={{ marginBottom: 10 }}
         />
@@ -71,8 +71,8 @@ const Carousel = () => {
           {symbol} {coin[currency.toLowerCase()]?.toFixed(2)}
         </span>
       </Link>
-    );
-  });
+    )
+  })
 
   const responsive = {
     0: {
@@ -84,7 +84,7 @@ const Carousel = () => {
     1024: {
       items: 4,
     },
-  };
+  }
 
   return (
     <div className={classes.carousel}>
@@ -100,7 +100,7 @@ const Carousel = () => {
         autoPlay
       />
     </div>
-  );
-};
+  )
+}
 
-export default Carousel;
+export default Carousel

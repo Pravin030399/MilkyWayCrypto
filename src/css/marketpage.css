@@ -167,8 +167,48 @@ margin-top:30px
 
 .allcrypto{
   margin-right:80rem;
+  color:#9969C7;
+  margin-top: 70px;
+}
+
+.latest-milkyway{
+  margin-right:50rem;
   color:#9969C7
 }
+
+.table-trending{
+  width: 35%;
+  background: #cfd0d1;
+  color: #fff;
+  border-radius: .4em;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0px 4px 20px rgba(5,57,94,.5);
+  color:black;
+  height:1rem;
+  margin-right: 60rem;
+}
+.trending-table-header{
+  width:50%;
+  background-color: #9969C7;
+  border-radius: 12px 12px 0 0;
+  height:35px;
+} 
+
+.trending-table-header tr{
+    border-color: lighten(#34495E, 10%);
+}
+
+.trending-coins{
+  font-size:1rem;
+}
+
+.fire-trending{
+  color:black;
+  margin-right: 80rem;
+  margin-top: 2rem;
+}
+
 
 /* @media only screen and (min-width: 1025px) and (max-width: 1200px) {
 .table-header td{
