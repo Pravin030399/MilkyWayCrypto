@@ -3,18 +3,17 @@ import React from 'react'
 // different end points.
 import { Link } from 'react-router-dom'
 // import marketpage from './marketpage'
+import Banner from '../components/Banner/Banner'
 
 const Home = () => {
   return (
     <div>
-      <h1>Home Page</h1>
-      <br />
-      <ul>
+      <Banner />
+      {/* <ul>
         <li>
-          {/* Endpoint to route to Home component */}
           <Link to="/marketpage">marketpage</Link>
         </li>
-      </ul>
+      </ul> */}
     </div>
   )
 }
