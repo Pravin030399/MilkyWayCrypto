@@ -21,7 +21,7 @@ function DataTop() {
         for (var i in res.data) {
           list = {
             cryptName: res.data[i].name,
-            cryptPerc: res.data[i].market_cap_change_percentage_24h,
+            cryptPerc: res.data[i].price_change_percentage_24h,
           };
           specifiedArr.push(list);
         }
@@ -36,7 +36,7 @@ function DataTop() {
   var top10Arr = [];
   var btm10Arr = [];
   for (var i in crypto) {
-    tempCrypArr.push(crypto[i].market_cap_change_percentage_24h);
+    tempCrypArr.push(crypto[i].price_change_percentage_24h);
   }
   tempCrypArr.sort(function (a, b) {
     return a - b;
@@ -52,7 +52,7 @@ function DataTop() {
   for (var i in top10Arr) {
     let listTop10 = {};
     for (var j in crypto) {
-      if (crypto[j].market_cap_change_percentage_24h === top10Arr[i]) {
+      if (crypto[j].price_change_percentage_24h === top10Arr[i]) {
         console.log(crypto[j].name);
         listTop10["image"] = crypto[j].image;
         listTop10["name"] = crypto[j].name;
