@@ -131,38 +131,43 @@ tr + tr > th { border-top: 1px solid #FCBCD7; }
 }
 
 .markets-header{
-  position: relative;
-  right:700px;
-  top: 30px;
-  color:#9969C7
+  margin-left: 30rem;
+  position: relative; 
+  color:#9969C7;
+  bottom:34rem;
 }
 
 .table-header1{
-    background-color: #9969C7;
-    color: hsl(0, 85%, 3%);
-    text-align: left;
-    box-shadow: 0 2px 15px rgba(64,64,64,.7);
-    border-radius: 12px 12px 0 0;
-    width: 60%; 
-    left: 50%;
-    top: 50%;
-    z-index: -1;
-    height:50px;
-    padding:110px;
+ width:50%;
+  background-color: #9969C7;
+  border-radius: 12px 12px 0 0;
+  height:30px;
 }
 
 .market-table{
-width: 1650px;
-border-collapse: separate;
-border-spacing: 0 1em;
-margin-top:30px
+  width: 35%;
+  background: #cfd0d1;
+  color: #fff;
+  border-radius: .4em;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0px 4px 20px rgba(5,57,94,.5);
+  color:black;
+  height:-10px;
+  margin-right: -50rem;
+  position: relative;
+  top: -34rem;
+}
+
+.t-body1{
+  height: 0.5rem
 }
 
 .t-body1 td {
     padding-top:10px;
   font-size:1.2rem;
      color:black;
-
+  height:0.5rem
 }
 
 .allcrypto{
@@ -208,6 +213,7 @@ margin-top:30px
   margin-right: 80rem;
   margin-top: 2rem;
 }
+
 
 
 /* @media only screen and (min-width: 1025px) and (max-width: 1200px) {

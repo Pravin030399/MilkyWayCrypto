@@ -39,7 +39,11 @@ function Marketpage() {
   }, [])
 
   useEffect(() => {
-    Axios.get('https://api.coingecko.com/api/v3/exchanges?per_page=10&page=1')
+    Axios.get('https://api.coingecko.com/api/v3/exchanges?per_page=7&page=1', {
+      params: {
+        limit: 5,
+      },
+    })
       .then((res) => {
         setMarkets(res.data)
         // for (var i in res.data) {
@@ -60,7 +64,7 @@ function Marketpage() {
     Axios.get(`https://api.coingecko.com/api/v3/search/trending`)
       .then((res) => {
         setTop(res.data.coins)
-        console.log(res.data.coins)
+        // console.log(res.data.coins)
       })
       .catch((err) => {
         console.log(err)
@@ -122,77 +126,7 @@ function Marketpage() {
         </tbody>
       </table>
 
-      <h1 className="allcrypto">All Cryptocurrencies</h1>
-      {/* <input
-        type="text"
-        className="search"
-        placeholder="Search By Name"
-        onChange={(e) => onChangeHandler(e.target.value)}
-        value={text}
-        // onBlur={(e) => {
-        //   setTimeout(() => {
-        //     setSuggestion([])
-        //   }, 100)
-        // }}
-      /> */}
-      <table>
-        <thead className="table-header">
-          <tr>
-            <td>#</td>
-            <td>Name</td>
-            <td>Symbol</td>
-            <td>Market Cap</td>
-            <td>Price</td>
-            <td>Circulating Supply</td>
-            <td>Volume(24hrs)</td>
-            <td>24h %</td>
-          </tr>
-        </thead>
-        {/* Mapping all the cryptos */}
-        <tbody className="t-body">
-          {/* Filtering to check for the searched crypto */}
-          {crypto.map((val, id) => {
-            var color = ''
-            if (val.market_cap_change_percentage_24h > 0) {
-              color = 'green'
-            } else {
-              color = 'red'
-            }
-
-            var nf1 = new Intl.NumberFormat()
-            var marketCap = nf1.format(val.market_cap)
-
-            var nf2 = new Intl.NumberFormat()
-            var total_volume = nf2.format(val.total_volume)
-
-            var nf3 = new Intl.NumberFormat()
-            var circulating_supply = nf3.format(val.circulating_supply)
-
-            return (
-              <>
-                <tr id={id}>
-                  <td className="rank">{val.market_cap_rank}</td>
-                  <td className="logo">
-                    <img className="image" src={val.image}></img>
-                    <p>{val.name}</p>
-                  </td>
-                  <td className="symbol">{val.symbol.toUpperCase()}</td>
-                  <td>${marketCap}</td>
-
-                  <td>${val.current_price}</td>
-                  <td>{circulating_supply}</td>
-                  <td>{total_volume}</td>
-                  <td style={{ color: color }}>
-                    {val.market_cap_change_percentage_24h.toFixed(2)}%
-                  </td>
-                </tr>
-              </>
-            )
-          })}
-        </tbody>
-      </table>
-
-      <h1 className="markets-header">Available Markets</h1>
+      <h1 className="markets-header">👍 Top Markets</h1>
 
       <table className="market-table">
         <thead className="table-header1">
@@ -200,9 +134,7 @@ function Marketpage() {
             <td>#</td>
             <td>Name</td>
             <td>Image</td>
-            <td>Trade Volume 24h</td>
             <td>Trust Score</td>
-            <td>URL</td>
           </tr>
         </thead>
 
@@ -235,9 +167,77 @@ function Marketpage() {
                   <td>
                     <img className="image" src={inp.image}></img>
                   </td>
-                  <td className="symbol">{inp.trade_volume_24h_btc}</td>
                   <td>{inp.trust_score}</td>
-                  <td>{inp.url}</td>
+                </tr>
+              </>
+            )
+          })}
+        </tbody>
+      </table>
+
+      <h1 className="allcrypto">All Cryptocurrencies</h1>
+      {/* <input
+        type="text"
+        className="search"
+        placeholder="Search By Name"
+        onChange={(e) => onChangeHandler(e.target.value)}
+        value={text}
+        // onBlur={(e) => {
+        //   setTimeout(() => {
+        //     setSuggestion([])
+        //   }, 100)
+        // }}
+      /> */}
+      <table>
+        <thead className="table-header">
+          <tr>
+            <td>#</td>
+            <td>Name</td>
+            <td>Symbol</td>
+            <td>Market Cap</td>
+            <td>Price</td>
+            <td>Circulating Supply</td>
+            <td>Volume(24hrs)</td>
+            <td>24h %</td>
+          </tr>
+        </thead>
+        {/* Mapping all the cryptos */}
+        <tbody className="t-body">
+          {/* Filtering to check for the searched crypto */}
+          {crypto.map((val, id) => {
+            var color = ''
+            if (val.price_change_percentage_24h > 0) {
+              color = 'green'
+            } else {
+              color = 'red'
+            }
+
+            var nf1 = new Intl.NumberFormat()
+            var marketCap = nf1.format(val.market_cap)
+
+            var nf2 = new Intl.NumberFormat()
+            var total_volume = nf2.format(val.total_volume)
+
+            var nf3 = new Intl.NumberFormat()
+            var circulating_supply = nf3.format(val.circulating_supply)
+
+            return (
+              <>
+                <tr id={id}>
+                  <td className="rank">{val.market_cap_rank}</td>
+                  <td className="logo">
+                    <img className="image" src={val.image}></img>
+                    <p>{val.name}</p>
+                  </td>
+                  <td className="symbol">{val.symbol.toUpperCase()}</td>
+                  <td>${marketCap}</td>
+
+                  <td>${val.current_price}</td>
+                  <td>{circulating_supply}</td>
+                  <td>{total_volume}</td>
+                  <td style={{ color: color }}>
+                    {val.price_change_percentage_24h.toFixed(2)}%
+                  </td>
                 </tr>
               </>
             )
