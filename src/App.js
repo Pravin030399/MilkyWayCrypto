@@ -13,6 +13,7 @@ import CoinPage from "./Pages/CoinPage";
 // import Home component
 import home from "./Pages/Home";
 import Marketpage from "./Pages/marketpage";
+import Gainloss from "./Pages/gainloss";
 // import About component
 import Header from "./components/Header";
 
@@ -35,6 +36,7 @@ function App() {
             <Route exact path="/" component={home} exact />
             <Route path="/marketpage" component={Marketpage} exact />
             <Route path="/coins/:id" component={CoinPage} exact />
+            {/* <Route path="/gainloss" component={Gainloss} /> */}
           </Switch>
         </div>
       </Router>
