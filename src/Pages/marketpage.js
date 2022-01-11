@@ -1,47 +1,47 @@
 // import './App.css'
-import Axios from 'axios'
-import { useEffect, useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.css'
-import '../css/marketpage.css'
+import Axios from "axios";
+import { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import "../css/marketpage.css";
 
 function Marketpage() {
   // Setting up the initial states using
   // react hook 'useState'
-  const [text, setText] = useState('')
-  const [crypto, setCrypto] = useState([])
-  const [suggestion, setSuggestion] = useState([])
-  const [markets, setMarkets] = useState([])
-  const [top, setTop] = useState([])
+  const [text, setText] = useState("");
+  const [crypto, setCrypto] = useState([]);
+  const [suggestion, setSuggestion] = useState([]);
+  const [markets, setMarkets] = useState([]);
+  const [top, setTop] = useState([]);
 
-  var list = {}
-  var specifiedArr = []
-  var top3 = []
-  var low3 = []
+  var list = {};
+  var specifiedArr = [];
+  var top3 = [];
+  var low3 = [];
   // Fetching crypto data from the API only
   // once when the component is mounted
   useEffect(() => {
     Axios.get(
-      'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=20&page=1&sparkline=false',
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=20&page=1&sparkline=false"
     )
       .then((res) => {
-        setCrypto(res.data)
+        setCrypto(res.data);
         for (var i in res.data) {
           list = {
             cryptName: res.data[i].name,
             cryptPerc: res.data[i].market_cap_change_percentage_24h,
-          }
-          specifiedArr.push(list)
+          };
+          specifiedArr.push(list);
         }
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+        console.log(err);
+      });
+  }, []);
 
   useEffect(() => {
-    Axios.get('https://api.coingecko.com/api/v3/exchanges?per_page=10&page=1')
+    Axios.get("https://api.coingecko.com/api/v3/exchanges?per_page=10&page=1")
       .then((res) => {
-        setMarkets(res.data)
+        setMarkets(res.data);
         // for (var i in res.data) {
         //   list = {
         //     cryptName: res.data[i].name,
@@ -52,38 +52,38 @@ function Marketpage() {
         // console.log(res.data)
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+        console.log(err);
+      });
+  }, []);
 
   useEffect(() => {
     Axios.get(`https://api.coingecko.com/api/v3/search/trending`)
       .then((res) => {
-        setTop(res.data.coins)
-        console.log(res.data.coins)
+        setTop(res.data.coins);
+        console.log(res.data.coins);
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+        console.log(err);
+      });
+  }, []);
 
   const onSuggestHandler = (text) => {
-    setText(text)
-    setSuggestion([])
-  }
+    setText(text);
+    setSuggestion([]);
+  };
 
   const onChangeHandler = (text) => {
-    let matches = []
+    let matches = [];
     if (text.length > 0) {
       matches = crypto.filter((crypto) => {
-        const regex = new RegExp(`${text}`, 'gi')
-        return crypto.name.match(regex)
-      })
+        const regex = new RegExp(`${text}`, "gi");
+        return crypto.name.match(regex);
+      });
     }
-    console.log('matches', matches)
-    setSuggestion(matches)
-    setText(text)
-  }
+    console.log("matches", matches);
+    setSuggestion(matches);
+    setText(text);
+  };
 
   return (
     <div className="market">
@@ -104,7 +104,7 @@ function Marketpage() {
         <tbody className="trending-table">
           {/* Filtering to check for the searched crypto */}
           {top.map((lol, id) => {
-            console.log(lol.item.name)
+            console.log(lol.item.name);
             // console.log(item.score)
             return (
               <>
@@ -117,7 +117,7 @@ function Marketpage() {
                   <td className="rank">{lol.item.market_cap_rank}</td>
                 </tr>
               </>
-            )
+            );
           })}
         </tbody>
       </table>
@@ -152,21 +152,21 @@ function Marketpage() {
         <tbody className="t-body">
           {/* Filtering to check for the searched crypto */}
           {crypto.map((val, id) => {
-            var color = ''
+            var color = "";
             if (val.market_cap_change_percentage_24h > 0) {
-              color = 'green'
+              color = "green";
             } else {
-              color = 'red'
+              color = "red";
             }
 
-            var nf1 = new Intl.NumberFormat()
-            var marketCap = nf1.format(val.market_cap)
+            var nf1 = new Intl.NumberFormat();
+            var marketCap = nf1.format(val.market_cap);
 
-            var nf2 = new Intl.NumberFormat()
-            var total_volume = nf2.format(val.total_volume)
+            var nf2 = new Intl.NumberFormat();
+            var total_volume = nf2.format(val.total_volume);
 
-            var nf3 = new Intl.NumberFormat()
-            var circulating_supply = nf3.format(val.circulating_supply)
+            var nf3 = new Intl.NumberFormat();
+            var circulating_supply = nf3.format(val.circulating_supply);
 
             return (
               <>
@@ -187,7 +187,7 @@ function Marketpage() {
                   </td>
                 </tr>
               </>
-            )
+            );
           })}
         </tbody>
       </table>
@@ -240,13 +240,13 @@ function Marketpage() {
                   <td>{inp.url}</td>
                 </tr>
               </>
-            )
+            );
           })}
         </tbody>
       </table>
     </div>
-  )
+  );
 }
 
 function getMinMax() {}
-export default Marketpage
+export default Marketpage;
